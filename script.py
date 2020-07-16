@@ -22,5 +22,6 @@ Do you:
 # TESTING AREA
 print("\nOnce upon a time")
 print(story_root.story_piece)
+user_choice = input("What is your name?\n")
 
 ######
