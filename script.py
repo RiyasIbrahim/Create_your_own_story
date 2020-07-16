@@ -3,7 +3,10 @@
 class TreeNode:
     def __init__(self, story_piece):
         self.story_piece = story_piece
-        self.choice = []
+        self.choices = []
+    def add_child(self, node):
+        self.choices.append(node)
+
 
 ######
 
@@ -16,6 +19,21 @@ Do you:
 1 ) Roar back!
 2 ) Run to the left...
 """)
+
+choice_a = TreeNode("""
+The bear is startled and runs away.
+Do you:
+1 ) Shout 'Sorry bear!'
+2 ) Yell 'Hooray!'
+""")
+
+choice_b = TreeNode("""
+You come across a clearing full of flowers.
+The bear follows you and asks 'what gives?'
+Do you:
+1 ) Gasp 'A talking bear!'
+2 ) Explain that the bear scared you.
+""")
 ######
 
 ######
@@ -23,5 +41,8 @@ Do you:
 print("\nOnce upon a time")
 print(story_root.story_piece)
 user_choice = input("What is your name?\n")
+
+story_root.add_child(choice_a)
+story_root.add_child(choice_b)
 
 ######
