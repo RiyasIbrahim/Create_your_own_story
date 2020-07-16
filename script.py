@@ -11,7 +11,15 @@ class TreeNode:
     def traverse(self):
         story_node = self
         print(story_node.story_piece)
-        
+        while story_node.choices != []:
+            choice = int(input("Enter 1 or 2 to continue the story:"))
+            if choice not in [1,2]:
+                choice = int(input("Enter a valid choice to continue the story: 1 or 2"))
+            choice -= 1
+            chosen_child = story_node.choices[choice]
+            print(chosen_child.story_piece)
+            story_node = chosen_child
+
 
 ######
 
@@ -44,10 +52,10 @@ Do you:
 ######
 # TESTING AREA
 print("\nOnce upon a time")
-print(story_root.story_piece)
-user_choice = input("What is your name?\n")
 
 story_root.add_child(choice_a)
 story_root.add_child(choice_b)
+
+story_root.traverse()
 
 ######
